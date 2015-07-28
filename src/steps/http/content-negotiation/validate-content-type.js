@@ -16,14 +16,14 @@ export default function validateContentType(requestContext, supportedExt) {
       reject(new APIError(415, null, "Invalid Media Type", detail));
     }
 
-    else if(!objectIsEmpty(contentType.parameters)) {
-      let detail =
-        "The request's Content-Type must be application/vnd.api+json, with " +
-        "no parameters. But the Content-Type you provided contained the " +
-        `parameters: ${Object.keys(contentType.parameters).join(", ")}.`;
+    // else if(!objectIsEmpty(contentType.parameters)) {
+    //   let detail =
+    //     "The request's Content-Type must be application/vnd.api+json, with " +
+    //     "no parameters. But the Content-Type you provided contained the " +
+    //     `parameters: ${Object.keys(contentType.parameters).join(", ")}.`;
 
-      reject(new APIError(415, null, "Invalid Media Type Parameter(s)", detail));
-    }
+    //   reject(new APIError(415, null, "Invalid Media Type Parameter(s)", detail));
+    // }
 
     else {
       resolve();
